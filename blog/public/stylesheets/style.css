@@ -1,0 +1,13 @@
+h1 {
+background-color:#005502;
+width:250px;
+}
+body {
+background-color:#CCFFBB;
+font-size:30;
+}
+
+a {
+    float:right;
+text-decoration:none;
+}

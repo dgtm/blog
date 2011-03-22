@@ -1,0 +1,11 @@
+<%= form_for(@post) do |blog|%>
+  <div class="field">
+  <%= blog.label :title,"Topic" %><br />
+  <%= blog.text_field :title, :size=>20 %><br />
+  <%= blog.label :body,"Post" %><br />
+  <%= blog.text_area :body, :rows=>3, :cols=>30 %><br />
+  </div>
+  <div class="actions">
+  <%= blog.submit %>
+  </div>
+  <% end %>
