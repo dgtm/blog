@@ -5,7 +5,15 @@ class Post < ActiveRecord::Base
   scope :latest, order("created_at DESC")
 
   before_save :title_case
+  before_create :set_publish_status
   before_update :check_post
+
+  def set_publish_status
+  
+      self.publish_status = true
+     p  "invoked "
+     p publish_status
+    end
 
   def title_case
     title.upcase!

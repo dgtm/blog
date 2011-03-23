@@ -1,6 +1,5 @@
 class PostsController < ApplicationController
   before_filter :check_title, :only=>[:create]
-
   def new
     @post = Post.new
   end

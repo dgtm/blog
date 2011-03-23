@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110322111900) do
+ActiveRecord::Schema.define(:version => 20110323093552) do
 
   create_table "posts", :force => true do |t|
     t.string   "blogger"
@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(:version => 20110322111900) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "genre"
+    t.boolean  "publish_status"
   end
 
 end
