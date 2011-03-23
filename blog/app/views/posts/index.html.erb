@@ -1,4 +1,6 @@
 <h1>Recent Blogs</h1>
-<%= indexdisplay(@post) %>
+<% @posts.each do |post| %>
+  <%= index_display(post) %>
+  <% end %>
 <%= link_to 'Add a post', new_post_path %>
 <%= link_to 'Latest Updated posts', :controller =>:posts, :action=>:index2 %>
