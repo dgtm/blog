@@ -1,7 +1,7 @@
 Blog::Application.routes.draw do
 
 
-
+  get "/posts/index2"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

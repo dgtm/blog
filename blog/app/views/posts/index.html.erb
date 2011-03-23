@@ -1,11 +1,4 @@
 <h1>Recent Blogs</h1>
-<% @post.each do |blog| %>
-  <p><b><%= blog.title %></b><br>
-  <%= blog.body %><br>
- Created at <%= blog.created_at %><br>
-  Last Updated at <%= blog.updated_at %><br></p>
-  <%= link_to 'Display', post_path(blog.id) %>
-  <%= link_to 'Edit', edit_post_path(blog.id) %>
- <%= link_to 'Destroy', post_path(blog.id), :confirm => 'Are you sure you want to delete this post?', :method => :delete  %>
-<% end %>
+<%= indexdisplay(@post) %>
 <%= link_to 'Add a post', new_post_path %>
+<%= link_to 'Latest Updated posts', :controller =>:posts, :action=>:index2 %>

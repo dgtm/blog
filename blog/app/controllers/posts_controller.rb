@@ -27,6 +27,11 @@ class PostsController < ApplicationController
     end
   end
 
+  def index2
+     @post = Post.latest
+     render :text => "latest posts"
+  end
+
   def destroy
     @post = Post.find(params[:id])
     @post.destroy
@@ -50,7 +55,8 @@ class PostsController < ApplicationController
   end
 
    def check_title
-     if params[:post][:title].length > 19  #--ERROR : NOT WORKING
+     p params[:post][:title].length
+     if params[:post][:title].length < 25  #--ERROR : NOT WORKING latest var
      return false
    else
      return true
