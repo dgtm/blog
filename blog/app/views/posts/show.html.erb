@@ -2,3 +2,7 @@
 <%= @post.body %>
 <%= @post.created_at %>
 <%= @post.updated_at %>
+# app_dir = Rails.root.join('views','comments')
+# <% app_dir=1 %>
+<%= render 'comments/form' %>
+<%= render 'comments/show' %>

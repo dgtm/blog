@@ -2,14 +2,26 @@ namespace :post do
   desc "Populate posts"
   task :populate => :environment do |row|
     [
-      {:blogger =>"abc",:title =>"A", :body =>"Thank You"},
+      # {:blogger =>"abc",:title =>"A", :body =>"Thank You", :comment => {:comment_text => "I am the super comment."}},
       {:blogger =>"def",:title =>"B", :body =>"Thank You Very much"},
-      {:blogger =>"ghi",:title =>"C", :body =>"Danke"},
-      {:blogger =>"jkl",:title =>"D", :body =>"Fielen Danke"},
+      {:blogger =>"ghi",:title =>"C", :body =>"Danke"          },
+      {:blogger =>"jkl",:title =>"D", :body =>"Fielen Danke"      }
       ].each do |attributes|
-        Post.find_or_create_by_blogger_and_title_and_body(attributes)
+        post = Post.find_or_create_by_blogger_and_title_and_body(attributes)
+        post.comments.create(attributes[:comment])
       end
     end
+
+    desc "Populate one comment"
+    task :comment_populate => :environment do |row|
+      Post.all.each do |onepost|
+      [
+        {:comment_text =>"I am the super-comment, the seed of rakes", :post_id => onepost.id },
+        ].each do |attributes|
+          onepost.comment.find_or_create_by_comment_text_and_post_id(attributes)
+          end
+        end
+      end
 
     desc "latest 5 blog posts"
     task :latest_five => :environment do

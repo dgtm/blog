@@ -1,0 +1,7 @@
+<%= form_for ([@post, @post.comments.build]) do |mycomment| %>
+<div class = "comment_form">
+<%= mycomment.label :comment_text,"Post a comment" %><br />
+<%= mycomment.text_area :comment_text, :rows=>3, :cols=>30 %><br />
+  <%= mycomment.submit %>
+</div>
+<% end %>

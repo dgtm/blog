@@ -26,6 +26,11 @@ class PostsController < ApplicationController
     end
   end
 
+  def spamlist
+    @posts = Post.publish_status
+
+  end
+
   def index2
      @post = Post.latest
      render :text => "latest posts"

@@ -15,6 +15,8 @@ module PostsHelper
         "<br/>",
         "Last Updated at:",
         blog.updated_at,
+        "Total Comments:",
+        blog.comments.length,
         link_to("Display", post_path(blog.id)),
         link_to("Edit", edit_post_path(blog.id)),
         link_to("Destroy", post_path(blog.id), :confirm => "Are you sure you want to delete this post?", :method => :delete)
