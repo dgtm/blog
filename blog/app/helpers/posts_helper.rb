@@ -22,4 +22,5 @@ module PostsHelper
     end
     return final_html.html_safe
   end
+
 end

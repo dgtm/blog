@@ -22,12 +22,19 @@ namespace :post do
 
     desc "unpublish"
     task :unpublish => :environment do
-      posts = Post.find_by_publish_status(true)
-      posts.each do |post|
-        puts post.title + "\t" + post.created_at.to_s
-      end
+      Post.where(:publish_status =>true).each do |post|
+       post.update_attribute(:publish_status,false)
+        # post.publish_status = false.to_s
+        puts post.title + "\t" + post.publish_status.to_s
+        end
     end
 
-
-
+    desc "publish"
+    task :publish => :environment do
+      posts = Post.where(:publish_status => true)
+      posts.each do |post|
+        post.update_attribute(:publish_status,true)
+        puts post.title + "\t" + post.publish_status.to_s
+      end
+    end
 end

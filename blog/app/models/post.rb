@@ -9,15 +9,14 @@ class Post < ActiveRecord::Base
   before_update :check_post
 
   def set_publish_status
-  
-      self.publish_status = true
+
+    self.publish_status = true
      p  "invoked "
      p publish_status
     end
 
   def title_case
     title.upcase!
-    true
   end
 
   def check_post
@@ -28,4 +27,20 @@ class Post < ActiveRecord::Base
       false
     end
   end
+
+
+  # def publish
+  #   if self.publish_status = false
+  #     self.publish_status = true
+  #   else
+  #     p "The post is already published."
+  #   end
+  #
+  #   def unpublish
+  #     if self.publish_status = true
+  #       self.publish_status = false
+  #     else
+  #       p "The post is not published."
+  #     end
+
 end
