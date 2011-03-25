@@ -2,12 +2,12 @@ class Post < ActiveRecord::Base
 
   has_many :comments, :dependent => :destroy
 
-  validate :title, :presence=>true
-  validate :body, :presence=>true
+  validates :title, :presence=>true
+  validates :body, :presence=>true
 
   scope :latest, order("created_at DESC")
-
-  before_save :title_case
+  # 
+  # before_save :title_case
   before_create :set_publish_status
   before_update :check_post
 
@@ -18,13 +18,13 @@ class Post < ActiveRecord::Base
      p publish_status
     end
 
-  def title_case
-    title.upcase!
-  end
+  # def title_case
+  #    self.title.downcase
+  #  end
 
   def check_post
     old_post = Post.find(self.id)
-    if title != old_post.title && body != old_post.body
+    if title != old_post.title || body != old_post.body
       true
     else
       false

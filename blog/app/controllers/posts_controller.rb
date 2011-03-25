@@ -39,7 +39,7 @@ class PostsController < ApplicationController
   def destroy
     @post = Post.find(params[:id])
     @post.destroy
-    redirect_to(posts_path,:notice=>'Post deleted')
+    redirect_to(posts_path,:notice =>'Post deleted')
   end
 
   def edit
@@ -48,13 +48,10 @@ class PostsController < ApplicationController
 
   def update
     @post = Post.find(params[:id])
-
-    respond_to do |format|
       if @post.update_attributes(params[:post])
-        format.html { redirect_to(@post, :notice => 'Updated post') }
+        redirect_to(@post, :notice => 'Updated post')
       else
-        format.html { render :action => "edit" }
-      end
+       render :action => "edit", :notice => "Unable to update post"
     end
   end
 

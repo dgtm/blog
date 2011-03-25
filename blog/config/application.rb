@@ -5,7 +5,8 @@ require 'rails/all'
 # If you have a Gemfile, require the gems listed there, including any gems
 # you've limited to :test, :development, or :production.
 Bundler.require(:default, Rails.env) if defined?(Bundler)
-require 'annotate'
+gem 'annotate'
+
 
 module Blog
   class Application < Rails::Application

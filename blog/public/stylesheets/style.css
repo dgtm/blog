@@ -1,16 +1,58 @@
-h1 {
-    text-align:center;
-background-color:#005502;
+#all-blogs {
+background-color:#5EC4CD;
+-moz-border-radius:25px;
 border-style:solid;
-border-width:2px;
-border-color:#CCFFBB;
+border-width:4px;
+border-color:#015c65;
+font-size:40px;
+text-align:center;
+font-variant:Verdana;
+padding:5px;
 }
 body {
-background-color:#CCFFBB;
-font-size:30;
+background-color:#99EB6B;
+
 }
 
 a {
-float:right;
 text-decoration:none;
 }
+
+.post-details{
+        padding-left:16px;
+    font-size:14px;
+background-color:#5CCCCC;
+padding-bottom:5px;
+font-color:#61B4CF;
+font-variant:Verdana;
+}
+.post-details-text{
+    font-weight:bold;
+    font-size:15px;
+
+}
+.post-topic{
+    padding-left:10px;
+padding-top:5px;
+    font-size:24px;
+    font-variant:small-caps
+}
+#post-body{
+    background-color:#61B4CF;
+    -moz-border-radius:15px;
+    margin:20px;
+
+}
+#post-links{
+    margin-left:12px;
+    font-size:12px;
+padding-bottom:3px;
+padding-top:5px;
+}
+#post-body h1{
+   margin:10px;
+}
+/*1D7373
+006363
+3AAACF
+61B4CF*/

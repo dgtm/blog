@@ -1,25 +1,30 @@
 module PostsHelper
   def index_display(blog)
-    final_html = ""
-    final_html += content_tag :h1 do
-      [ link_to(blog.title,post_path(blog.id))].join(' ').html_safe
+    final_html = "<div id='post-body'>"
+    final_html += content_tag :div do
+      [ "<div class='post-topic'",
+        link_to(blog.title,post_path(blog.id)),
+        "</div>"
+        ].join(' ').html_safe
     end
 
 
-   final_html += content_tag :p do
+   final_html += content_tag :div do
       [
-        "Blog content:",
-        blog.body,
-        "<br/>Created at:",
-        blog.created_at,
-        "<br/>",
-        "Last Updated at:",
-        blog.updated_at,
-        "Total Comments:",
+        "<div class='post-details'",
+        "<br/><span class='post-details-text'>Created</span>",
+        time_ago_in_words(blog.created_at),
+        " ago<br/>",
+        "<span class='post-details-text'>Updated</span>",
+        time_ago_in_words(blog.updated_at),
+         " ago<br/>",
+        "<span class='post-details-text'>Total Comments:</span>",
         blog.comments.length,
-        link_to("Display", post_path(blog.id)),
-        link_to("Edit", edit_post_path(blog.id)),
-        link_to("Destroy", post_path(blog.id), :confirm => "Are you sure you want to delete this post?", :method => :delete)
+        "</div><div id='post-links'>",
+        link_to("Display |", post_path(blog.id)),
+        link_to("Edit |", edit_post_path(blog.id)),
+        link_to("Destroy", post_path(blog.id), :confirm => "Are you sure you want to delete this post?", :method => :delete),
+        "</div></div>"
         ].join(' ').html_safe
     end
     return final_html.html_safe

@@ -9,7 +9,7 @@ class CommentsController < ApplicationController
     if @comment.save
         redirect_to(post_path(@post),:notice =>'Your comment has been  added')
         else
-         render :action=>"new", :alert =>'Unable to add post'
+         redirect_to(post_path(@post), :alert =>'Unable to add post')
         end
   end
 
