@@ -3,9 +3,9 @@ namespace :post do
   task :populate => :environment do |row|
     [
       # {:blogger =>"abc",:title =>"A", :body =>"Thank You", :comment => {:comment_text => "I am the super comment."}},
-      {:blogger =>"def",:title =>"B", :body =>"Thank You Very much"},
-      {:blogger =>"ghi",:title =>"C", :body =>"Danke"          },
-      {:blogger =>"jkl",:title =>"D", :body =>"Fielen Danke"      }
+      {:blogger =>"def",:title =>"The Hard Times", :body =>"Thank You Very much"},
+      {:blogger =>"ghi",:title =>"On the Move", :body =>"Danke"          },
+      {:blogger =>"jkl",:title =>"With the Groove", :body =>"Fielen Danke"      }
       ].each do |attributes|
         post = Post.find_or_create_by_blogger_and_title_and_body(attributes)
         post.comments.create(attributes[:comment])
@@ -36,7 +36,6 @@ namespace :post do
     task :unpublish => :environment do
       Post.where(:publish_status =>true).each do |post|
        post.update_attribute(:publish_status,false)
-        # post.publish_status = false.to_s
         puts post.title + "\t" + post.publish_status.to_s
         end
     end

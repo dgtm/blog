@@ -16,8 +16,13 @@ Blog::Application.routes.draw do
   # Sample resource route (maps HTTP verbs to controller actions automatically):
   #   resources :products
   resources :posts  do
-  resources :comments
+    collection do
+      get 'latest_index'
+      get 'show_by_title'
+    end
+    resources :comments
   end
+
 
   # Sample resource route with options:
   #   resources :products do

@@ -6,7 +6,9 @@ class Post < ActiveRecord::Base
   validates :body, :presence=>true
 
   scope :latest, order("created_at DESC")
-  # 
+  scope :order_by_title, order("title ASC")
+
+  #
   # before_save :title_case
   before_create :set_publish_status
   before_update :check_post

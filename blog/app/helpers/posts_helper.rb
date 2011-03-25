@@ -21,9 +21,8 @@ module PostsHelper
         "<span class='post-details-text'>Total Comments:</span>",
         blog.comments.length,
         "</div><div id='post-links'>",
-        link_to("Display |", post_path(blog.id)),
-        link_to("Edit |", edit_post_path(blog.id)),
-        link_to("Destroy", post_path(blog.id), :confirm => "Are you sure you want to delete this post?", :method => :delete),
+        link_to("Edit Post |", edit_post_path(blog.id)),
+        link_to("Remove Post", post_path(blog.id), :confirm => "Are you sure you want to delete this post?", :method => :delete),
         "</div></div>"
         ].join(' ').html_safe
     end

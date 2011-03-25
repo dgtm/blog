@@ -2,5 +2,8 @@
 <% @posts.each do |post| %>
   <%= index_display(post) %>
   <% end %>
+<div id="navigation">
 <%= link_to 'Add a post', new_post_path %> |
-<%= link_to 'Latest Updated posts', :controller =>:posts, :action=>:index %>
+<%= link_to 'List latest posts', latest_index_posts_path %> |
+<%= link_to 'List by title', show_by_title_posts_path %>
+</div>

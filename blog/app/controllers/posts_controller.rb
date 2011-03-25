@@ -21,19 +21,16 @@ class PostsController < ApplicationController
 
   def index
     @posts = Post.all
-    respond_to do |format|
-      format.html
     end
-  end
 
-  def spamlist
-    @posts = Post.publish_status
+    def show_by_title
+      @posts=Post.order_by_title
+      render :action => "index"
+    end
 
-  end
-
-  def index2
-     @post = Post.latest
-     render :text => "latest posts"
+  def latest_index
+     @posts = Post.latest
+     render :action => "index"
   end
 
   def destroy
@@ -63,4 +60,5 @@ class PostsController < ApplicationController
      return true
      end
    end
+
 end

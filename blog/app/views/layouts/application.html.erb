@@ -6,8 +6,9 @@
   <%= javascript_include_tag :defaults %>
   <%= csrf_meta_tag %>
 </head>
-<body>
+<body><div id="dashboard-link">
 <%= link_to 'Get To Dashboard',posts_path %>
+</div>
 <%= notice %>
 <%= alert %>
 <%= yield %>
